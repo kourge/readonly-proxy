@@ -1,0 +1,27 @@
+{
+  "name": "readonly-proxy",
+  "version": "0.0.1",
+  "description": "frozen objects without modifying the target",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [
+    "freeze",
+    "frozen",
+    "readonly",
+    "read-only",
+    "proxy",
+    "object"
+  ],
+  "author": "Wil Lee <kourge@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  }
+}
