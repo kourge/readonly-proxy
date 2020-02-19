@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "npm run build:clean && npm run build:compile",
+    "build:compile": "tsc -p tsconfig.build.json",
+    "build:clean": "rm -rf ./lib"
   },
   "keywords": [
     "freeze",
