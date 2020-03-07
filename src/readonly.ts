@@ -1,3 +1,5 @@
+import {isObject} from './is-object';
+
 /**
  * Makes all properties in `T` read-only, recursively.
  */
@@ -21,10 +23,7 @@ export function readonlyProxyOf<T extends object>(target: T): DeepReadonly<T> {
     get(target: T, property: string | number | symbol, receiver: any): any {
       const result = Reflect.get(target, property, receiver);
       try {
-        if (
-          (typeof result === 'object' && result !== null) ||
-          typeof result === 'function'
-        ) {
+        if (isObject(result)) {
           return readonlyProxyOf(result);
         }
       } catch {}
