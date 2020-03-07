@@ -1,4 +1,4 @@
-import {readonlyProxyOf} from './index';
+import {readonlyProxyOf} from './readonly';
 
 const o = {a: 1, b: 2} as const;
 const l = {
