@@ -141,3 +141,8 @@ a trap that is not supported by it. This makes it incompatible with
 `readonly-proxy`. Futhermore, `proxy-polyfill` calls `Object.seal` on the
 original target object as well, meaning that the ability to continue modifying
 the original object is lost.
+
+## License
+
+`readonly-proxy` is licensed under the MIT license. See the `LICENSE` file for
+more information.
