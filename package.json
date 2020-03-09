@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "description": "frozen objects without modifying the target",
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "jest",
     "build": "npm run build:clean && npm run build:compile",
     "build:compile": "tsc -p tsconfig.build.json",
-    "build:clean": "rm -rf ./lib"
+    "build:clean": "rm -rf ./lib",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "freeze",
