@@ -13,6 +13,10 @@
     "build:clean": "rm -rf ./lib",
     "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kourge/readonly-proxy.git"
+  },
   "keywords": [
     "freeze",
     "frozen",
