@@ -119,6 +119,39 @@ thrown.
 
 Combine all of these semantics together, and we get the behavior above.
 
+## Silent version
+
+As mentioned in the previous section, because `readonly-proxy` returns `false`
+from its `[[Set]]` and `[[Delete]]` traps, in strict mode, attempting to write
+or delete a property on a read-only proxy will result in a `TypeError` being
+thrown. If you do not want this behavior even in strict mode, you can instead
+use the `silentReadonlyProxyOf` function:
+
+```js
+(function() {
+  'use strict';
+  const {silentReadonlyProxyOf} = require('readonly-proxy');
+
+  const point = {x: 0, y: 0};
+  const p = silentReadonlyProxyOf(point);
+
+  // Setting a property does not work, and does not throw a `TypeError`.
+  p.x = 3;
+  assert(p.x === 0);
+  assert(point.x === 0);
+
+  // Deleting a property does not work, and does not throw a `TypeError`.
+  delete p.y;
+  assert(p.y === 0);
+  assert(point.y === 0);
+})();
+```
+
+The `silentReadonlyProxyOf` function is a version of the `readonlyProxyOf`
+function whose `[[Set]]` and `[[Delete]]` traps lie about their failures to
+mutate by returning `true`. This makes it semantically incorrect, but suppresses
+the `TypeError` throws even in strict mode.
+
 ## Interaction with polyfill
 
 It is not recommended to use `readonly-proxy` with a proxy polyfill. In the
