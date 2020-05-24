@@ -1,5 +1,15 @@
 {
-  "extends": "./tsconfig.json",
-  "include": [],
-  "files": ["./src/index.ts"]
+  "extends": "./tsconfig.base.json",
+
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./",
+
+    "composite": true
+  },
+
+  "include": ["./*.ts"],
+  "exclude": ["./*.test.ts"]
 }

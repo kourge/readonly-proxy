@@ -1,30 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": [
-      "ES5",
-      "ES2015.Core",
-      "ES2015.Proxy",
-      "ES2015.Reflect",
-      "ES2015.Collection"
-    ],
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./lib",
-
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "alwaysStrict": false,
-    "noImplicitUseStrict": true,
-
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": ["./src/**/*"]
+  "extends": "./tsconfig.base.json"
 }
