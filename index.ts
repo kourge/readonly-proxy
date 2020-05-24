@@ -40,6 +40,8 @@ export function readonlyProxyOf<T extends object>(target: T): DeepReadonly<T> {
   }) as DeepReadonly<T>;
 }
 
+export default readonlyProxyOf;
+
 /**
  * Returns a silent, read-only proxy of the given `target` object. The proxy
  * resists attempts to directly delete or set any of its properties, and only
