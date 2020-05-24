@@ -1,13 +1,14 @@
 # `readonly-proxy`
 
-An alternative to `Object.freeze`, the `readonly-proxy` provides a way to make
-a mutation-resistant proxy to some object, instead of freezing the object
-itself. It provides several advantages over `Object.freeze`:
+An alternative to `Object.freeze`, the `readonly-proxy` provides a way to make a
+mutation-resistant proxy to some object, instead of freezing the object itself.
+It provides several advantages over `Object.freeze`:
 
-- The original object remains unfrozen. Only the wrapped proxy exhibits
-  "frozen" behavior.
+- The original object remains unfrozen. Only the wrapped proxy exhibits "frozen"
+  behavior.
 - Changes to the original object is reflected by the proxy, whereas a clone of
-  an object is effectly a snapshot of the original object at the time of cloning.
+  an object is effectly a snapshot of the original object at the time of
+  cloning.
 - The proxy is recursively read-only and works with objects with circular
   references, while out-of-the-box `Object.freeze` does not deep freeze an
   object, nor does it automatically handle objects with cycles without
@@ -110,8 +111,8 @@ write or deletion cannot succeed.
 In §12.3.2.1 (Property Accessors » Runtime Semantics: Evaluation), writing a
 member expression (e.g. `foo.bar`) in strict mode results in a strict reference.
 
-Finally, in §6.2.3.2 (The Reference Specification Type » `PutValue (V, W)`)
-step 6d, if a `[[Set]]` operation returns `false` and the reference is a strict
+Finally, in §6.2.3.2 (The Reference Specification Type » `PutValue (V, W)`) step
+6d, if a `[[Set]]` operation returns `false` and the reference is a strict
 reference, then a `TypeError` is thrown. Similarly, in §12.5.4.2 (The `delete`
 Operator » Runtime Semantics: Evaluation) step 5f, if a `[[Delete]]` operation
 returns `false` and the reference is a strict reference, then a `TypeError` is
@@ -169,8 +170,8 @@ determining what parts of `readonly-proxy` will work and what will not:
 
 Take [`proxy-polyfill`](https://github.com/GoogleChrome/proxy-polyfill) for
 example: at the time of writing, out of the above three traps, it only supports
-two of them (`get` and `set`), and throws when passed a handler that defines
-a trap that is not supported by it. This makes it incompatible with
+two of them (`get` and `set`), and throws when passed a handler that defines a
+trap that is not supported by it. This makes it incompatible with
 `readonly-proxy`. Futhermore, `proxy-polyfill` calls `Object.seal` on the
 original target object as well, meaning that the ability to continue modifying
 the original object is lost.
